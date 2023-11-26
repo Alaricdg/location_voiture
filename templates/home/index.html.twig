@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+
+{% block body %}
+
+	{% for info in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ info }}
+		</div>
+	{% endfor %}
+
+	<h1 style="color: #ffffff; position: absolute; top: 20%; left: 40%;">Bienvenue à bord</h1>
+	<p style="color: #ffffff; position: absolute; top: 28%; left: 43%;">Location de voiture 24h/24 et 7j/7</p>
+	<img src={{asset('upload/start.jpg')}} width="100%">
+	<form method="post" class="row">
+		<div class="offset-1 col-3">
+			<label for="inputAdresse" class="position: absolute; top: 60%; left: 10%">Ville de depart</label>
+			<input type="text" name="adresse_depart" id="inputAdresse" class="form-control col-3" required>
+		</div>
+		<div class="col-3">
+			<label for="inputDebut">date de debut</label>
+			<input type="date" name="date_debut" id="inputDebut" class="form-control" required>
+		</div>
+		<div class="col-3">
+			<label for="inputFin">date de debut</label>
+			<input type="date" name="date_fin" id="inputFin" class="form-control" required>
+		</div>
+		<div class="col-2 ; position: absolute; top: 80%">
+			<button class="btn btn-lg btn-primary" type="submit">
+				valider
+			</button>
+		</div>
+
+	</form>
+	<div class="row">
+		{% include "commun/_articles.html.twig"  %}
+	</div>
+{% endblock %}

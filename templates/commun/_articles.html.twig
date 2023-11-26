@@ -1,0 +1,11 @@
+{% for vehicule in Vehicules %}
+	<div class="col-3">
+		<h2 class="h5">{{ vehicule.titre }}</h2>
+		<img src="{{ asset(vehicule.photo) }}" alt="" class="img-fluid">
+		<p>Marque :
+			{{ vehicule.marque }}</p>
+		<p>Modele:
+			{{ vehicule.modele }}</p>
+		<a href="{{path('vehicules_single', {id : vehicule.id})}}">lire la suite</a>
+	</div>
+{% endfor %}

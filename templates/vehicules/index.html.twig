@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'Ajouter un vehicule' %}
+
+{% block body %}
+
+{{ form_start(form) }}
+<div class="row">
+	<h1>Nouveau vehicule</h1>
+	<div class="col-6 mb-3">
+		{{ form_row(form.titre , {'label':' titre du vehicule' , 'placeholder': 'titre'}) }}
+	</div>
+	<div class="col-6 mb-3">
+		{{ form_row(form.photo , {'label':' Lien de la photo'}) }}
+	</div>
+	<div class="col-4 mb-3">
+		{{ form_label(form.prix_journee, 'prix pour la journée') }}
+		{{ form_widget(form.prix_journee, {'attr': {'placeholder': 'saisir le prix pour la journée'}}) }}
+		{{ form_errors(form.prix_journee) }}
+	</div>
+	<div class="col-4 mb-3">
+		{{ form_row(form.marque , {'label':'Marque'}) }}
+	</div>
+	<div class="col-4 mb-3">
+		{{ form_row(form.modele , {'label':'Modele'}) }}
+	</div>
+	<div class="col-12 mb-3">
+		{{ form_row(form.description , {'label':'description du vehicule' , 'attr' : {'rows' : 10}}) }}
+	</div>
+	<div class="col-12 mb-3">
+		{{ form_widget(form.date_enregistrement, {
+        'label': 'Date d\'enregistrement',
+        'format': 'dd/MM/yyyy',
+    }) }}
+</div>
+
+		<div class="mb-3">
+			<input type="submit" class="btn btn-primary btn-lg" value="{{btn}}">
+		</div>
+	</div>
+	{{ form_end(form) }}
+{% endblock %}
